@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Sirin+Stencil" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(0, 99, 168);
+        }
+
+        .photo {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo__text {
+            position: absolute;
+            width: 640px;
+            top: 200px;
+            left: 200px;
+            font-family: 'Sirin Stencil', sans-serif;
+            font-size: 6em;
+            color: white;
+        }
+
+        .photo__image {
+            margin-left: 600px;
+            width: calc(1200px / 2);
+            height: calc(1800px / 2);
+        }
+    </style>
+</head>
+<body>
+<div class="photo">
+    <span class="photo__text">Come take your fun Santa selfies in the Digital Products space!</span>
+    <img class="photo__image" src="http://fzse-stage:5000/api/photos/download/00000"/>
+</div>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        window.setInterval(function () {
+            var url = 'http://fzse-stage:5000/api/photos/random?' + Date.now().toString();
+            var photo = $('.photo__image');
+            $(photo).attr('src', url);
+        }, 5000);
+    })
+</script>
+</body>
+</html>
